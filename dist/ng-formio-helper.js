@@ -301,16 +301,16 @@ angular.module('ngFormioHelper', [
 
     /**** PARTIAL TEMPLATES ****/
     $templateCache.put('formio-helper/pager.html',
-      "<div class=\"paginate-anything\">\n  <ul class=\"pagination pagination-{{size}} links\" ng-if=\"numPages > 1\">\n    <li ng-class=\"{disabled: page <= 0}\"><a href ng-click=\"gotoPage(page-1)\">&laquo;</a></li>\n    <li ng-if=\"linkGroupFirst() > 0\"><a href ng-click=\"gotoPage(0)\">1</a></li>\n    <li ng-if=\"linkGroupFirst() > 1\" class=\"disabled\"><a href>&hellip;</a></li>\n    <li ng-repeat=\"p in [linkGroupFirst(), linkGroupLast()] | makeRange\" ng-class=\"{active: p === page}\"><a href ng-click=\"gotoPage(p)\">{{p+1}}</a></li>\n    <li ng-if=\"linkGroupLast() < numPages - 2\" class=\"disabled\"><a href>&hellip;</a></li>\n    <li ng-if=\"isFinite() && linkGroupLast() < numPages - 1\"><a href ng-click=\"gotoPage(numPages-1)\">{{numPages}}</a></li>\n    <li ng-class=\"{disabled: page >= numPages - 1}\"><a href ng-click=\"gotoPage(page+1)\">&raquo;</a></li>\n  </ul>\n</div>\n"
+      "<div class=\"paginate-anything\">\r\n  <ul class=\"pagination pagination-{{size}} links\" ng-if=\"numPages > 1\">\r\n    <li ng-class=\"{disabled: page <= 0}\"><a href ng-click=\"gotoPage(page-1)\">&laquo;</a></li>\r\n    <li ng-if=\"linkGroupFirst() > 0\"><a href ng-click=\"gotoPage(0)\">1</a></li>\r\n    <li ng-if=\"linkGroupFirst() > 1\" class=\"disabled\"><a href>&hellip;</a></li>\r\n    <li ng-repeat=\"p in [linkGroupFirst(), linkGroupLast()] | makeRange\" ng-class=\"{active: p === page}\"><a href ng-click=\"gotoPage(p)\">{{p+1}}</a></li>\r\n    <li ng-if=\"linkGroupLast() < numPages - 2\" class=\"disabled\"><a href>&hellip;</a></li>\r\n    <li ng-if=\"isFinite() && linkGroupLast() < numPages - 1\"><a href ng-click=\"gotoPage(numPages-1)\">{{numPages}}</a></li>\r\n    <li ng-class=\"{disabled: page >= numPages - 1}\"><a href ng-click=\"gotoPage(page+1)\">&raquo;</a></li>\r\n  </ul>\r\n</div>\r\n"
     );
 
     $templateCache.put('formio-helper/breadcrumb.html',
-      "<ol class=\"breadcrumb\">\n  <li ng-repeat=\"step in steps\" ng-class=\"{active: $last}\">\n    <a ui-sref=\"{{ step.name }}.view\" ng-bind-html=\"step.ncyBreadcrumbLabel\"></a>\n  </li>\n</ol>\n"
+      "<ol class=\"breadcrumb\">\r\n  <li ng-repeat=\"step in steps\" ng-class=\"{active: $last}\">\r\n    <a ui-sref=\"{{ step.name }}.view\" ng-bind-html=\"step.ncyBreadcrumbLabel\"></a>\r\n  </li>\r\n</ol>\r\n"
     );
 
     /**** AUTH TEMPLATES ****/
     $templateCache.put('formio-helper/auth/auth.html',
-      "<div class=\"col-md-8 col-md-offset-2\">\n    <div class=\"panel panel-default\">\n        <div class=\"panel-heading\" style=\"padding-bottom: 0; border-bottom: none;\">\n            <ul class=\"nav nav-tabs\" style=\"border-bottom: none;\">\n                <li role=\"presentation\" ng-class=\"{active:isActive('auth.login')}\"><a ui-sref=\"auth.login()\">Login</a></li>\n                <li role=\"presentation\" ng-class=\"{active:isActive('auth.register')}\"><a ui-sref=\"auth.register()\">Register</a></li>\n            </ul>\n        </div>\n        <div class=\"panel-body\">\n            <div class=\"row\">\n                <div class=\"col-lg-12\">\n                    <div ui-view></div>\n                </div>\n            </div>\n        </div>\n    </div>\n</div>\n"
+      "<div class=\"col-md-8 col-md-offset-2\">\r\n    <div class=\"panel panel-default\">\r\n        <div class=\"panel-heading\" style=\"padding-bottom: 0; border-bottom: none;\">\r\n            <ul class=\"nav nav-tabs\" style=\"border-bottom: none;\">\r\n                <li role=\"presentation\" ng-class=\"{active:isActive('auth.login')}\"><a ui-sref=\"auth.login()\">Login</a></li>\r\n                <li role=\"presentation\" ng-class=\"{active:isActive('auth.register')}\"><a ui-sref=\"auth.register()\">Register</a></li>\r\n            </ul>\r\n        </div>\r\n        <div class=\"panel-body\">\r\n            <div class=\"row\">\r\n                <div class=\"col-lg-12\">\r\n                    <div ui-view></div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>\r\n"
     );
 
     $templateCache.put('formio-helper/auth/login.html',
@@ -318,83 +318,83 @@ angular.module('ngFormioHelper', [
     );
 
     $templateCache.put('formio-helper/auth/register.html',
-      "<formio src=\"currentForm\" formio-options=\"{skipQueue: true}\"></formio>\n"
+      "<formio src=\"currentForm\" formio-options=\"{skipQueue: true}\"></formio>\r\n"
     );
 
     /**** RESOURCE TEMPLATES *******/
     $templateCache.put('formio-helper/resource/resource.html',
-      "<h2>{{ currentResource.name | capitalize }}</h2>\n<ul class=\"nav nav-tabs\" ng-if=\"isReady\">\n  <li role=\"presentation\" ng-class=\"{active:isActive(currentResource.name + '.view')}\" ng-if=\"hasAccess(currentResource.name, ['read_all', 'read_own'])\"><a ui-sref=\"{{ baseName }}.view()\">View</a></li>\n  <li role=\"presentation\" ng-class=\"{active:isActive(currentResource.name + '.edit')}\" ng-if=\"hasAccess(currentResource.name, ['update_all', 'update_own'])\"><a ui-sref=\"{{ baseName }}.edit()\">Edit</a></li>\n  <li role=\"presentation\" ng-class=\"{active:isActive(currentResource.name + '.delete')}\" ng-if=\"hasAccess(currentResource.name, ['delete_all', 'delete_own'])\"><a ui-sref=\"{{ baseName }}.delete()\">Delete</a></li>\n</ul>\n<div ui-view></div>\n"
+      "<h2>{{ currentResource.name | capitalize }}</h2>\r\n<ul class=\"nav nav-tabs\" ng-if=\"isReady\">\r\n  <li role=\"presentation\" ng-class=\"{active:isActive(currentResource.name + '.view')}\" ng-if=\"hasAccess(currentResource.name, ['read_all', 'read_own'])\"><a ui-sref=\"{{ baseName }}.view()\">View</a></li>\r\n  <li role=\"presentation\" ng-class=\"{active:isActive(currentResource.name + '.edit')}\" ng-if=\"hasAccess(currentResource.name, ['update_all', 'update_own'])\"><a ui-sref=\"{{ baseName }}.edit()\">Edit</a></li>\r\n  <li role=\"presentation\" ng-class=\"{active:isActive(currentResource.name + '.delete')}\" ng-if=\"hasAccess(currentResource.name, ['delete_all', 'delete_own'])\"><a ui-sref=\"{{ baseName }}.delete()\">Delete</a></li>\r\n</ul>\r\n<div ui-view></div>\r\n"
     );
 
     $templateCache.put('formio-helper/resource/create.html',
-      "<h3 ng-if=\"pageTitle\">{{ pageTitle }}</h3>\n<hr ng-if=\"pageTitle\"></hr>\n<formio src=\"currentResource.formUrl\" submission=\"submission\" hide-components=\"hideComponents\"></formio>\n"
+      "<h3 ng-if=\"pageTitle\">{{ pageTitle }}</h3>\r\n<hr ng-if=\"pageTitle\"></hr>\r\n<formio src=\"currentResource.formUrl\" submission=\"submission\" hide-components=\"hideComponents\"></formio>\r\n"
     );
 
     $templateCache.put('formio-helper/resource/delete.html',
-      "<formio-delete src=\"currentResource.submissionUrl\" resource-name=\"resourceName\"></formio-delete>\n"
+      "<formio-delete src=\"currentResource.submissionUrl\" resource-name=\"resourceName\"></formio-delete>\r\n"
     );
 
     $templateCache.put('formio-helper/resource/edit.html',
-      "<formio src=\"currentResource.submissionUrl\" hide-components=\"hideComponents\"></formio>\n"
+      "<formio src=\"currentResource.submissionUrl\" hide-components=\"hideComponents\"></formio>\r\n"
     );
 
     $templateCache.put('formio-helper/resource/index.html',
-      "<formio-grid src=\"currentResource.formUrl\" columns=\"currentResource.columns\" query=\"currentResource.gridQuery\" grid-options=\"currentResource.gridOptions\"></formio-grid><br/>\n<a ui-sref=\"{{ baseName }}Create()\" class=\"btn btn-primary\" ng-if=\"isReady && hasAccess(currentResource.name, ['create_own', 'create_all'])\"><span class=\"glyphicon glyphicon-plus\" aria-hidden=\"true\"></span> New {{ currentResource.name | capitalize }}</a>\n"
+      "<formio-grid src=\"currentResource.formUrl\" columns=\"currentResource.columns\" query=\"currentResource.gridQuery\" grid-options=\"currentResource.gridOptions\"></formio-grid><br/>\r\n<a ui-sref=\"{{ baseName }}Create()\" class=\"btn btn-primary\" ng-if=\"isReady && hasAccess(currentResource.name, ['create_own', 'create_all'])\"><span class=\"glyphicon glyphicon-plus\" aria-hidden=\"true\"></span> New {{ currentResource.name | capitalize }}</a>\r\n"
     );
 
     $templateCache.put('formio-helper/resource/view.html',
-      "<formio src=\"currentResource.submissionUrl\" read-only=\"true\"></formio>\n"
+      "<formio src=\"currentResource.submissionUrl\" read-only=\"true\"></formio>\r\n"
     );
 
     /**** FORM TEMPLATES *******/
     $templateCache.put('formio-helper/form/list.html',
-      "<ul class=\"list-group\">\n    <li class=\"list-group-item\" ng-repeat=\"form in forms | orderBy: 'title'\"><a ui-sref=\"{{ base }}form.view({formId: form._id})\">{{ form.title }}</a></li>\n</ul>\n"
+      "<ul class=\"list-group\">\r\n    <li class=\"list-group-item\" ng-repeat=\"form in forms | orderBy: 'title'\"><a ui-sref=\"{{ base }}form.view({formId: form._id})\">{{ form.title }}</a></li>\r\n</ul>\r\n"
     );
 
     $templateCache.put('formio-helper/form/index.html',
-      "<formio-forms src=\"formsSrc\" tag=\"formsTag\" base=\"formBase\"></formio-forms>\n"
+      "<formio-forms src=\"formsSrc\" tag=\"formsTag\" base=\"formBase\"></formio-forms>\r\n"
     );
 
     $templateCache.put('formio-helper/form/form.html',
-      "<ul class=\"nav nav-tabs\">\n    <li role=\"presentation\" ng-class=\"{active:isActive(formBase + 'form.view')}\"><a ui-sref=\"{{ formBase }}form.view()\">Form</a></li>\n    <li role=\"presentation\" ng-class=\"{active:isActive(formBase + 'form.submissions')}\"><a ui-sref=\"{{ formBase }}form.submissions()\">Submissions</a></li>\n</ul>\n<div ui-view style=\"margin-top:20px;\"></div>\n"
+      "<ul class=\"nav nav-tabs\">\r\n    <li role=\"presentation\" ng-class=\"{active:isActive(formBase + 'form.view')}\"><a ui-sref=\"{{ formBase }}form.view()\">Form</a></li>\r\n    <li role=\"presentation\" ng-class=\"{active:isActive(formBase + 'form.submissions')}\"><a ui-sref=\"{{ formBase }}form.submissions()\">Submissions</a></li>\r\n</ul>\r\n<div ui-view style=\"margin-top:20px;\"></div>\r\n"
     );
 
     $templateCache.put('formio-helper/form/view.html',
-      "<formio form=\"currentForm.form\" form-action=\"currentForm.url + '/submission'\" submission=\"submission\" hide-components=\"hideComponents\"></formio>\n"
+      "<formio form=\"currentForm.form\" form-action=\"currentForm.url + '/submission'\" submission=\"submission\" hide-components=\"hideComponents\"></formio>\r\n"
     );
 
     /**** SUBMISSION TEMPLATES *******/
     $templateCache.put('formio-helper/submission/index.html',
-      "<formio-grid src=\"currentForm.url\" query=\"submissionQuery\" columns=\"submissionColumns\"></formio-grid>\n\n"
+      "<formio-grid src=\"currentForm.url\" query=\"submissionQuery\" columns=\"submissionColumns\"></formio-grid>\r\n\r\n"
     );
 
     $templateCache.put('formio-helper/submission/submission.html',
-      "<ul class=\"nav nav-pills\">\n  <li role=\"presentation\" ng-class=\"{active:isActive(formBase + 'form.submission.view')}\"><a ui-sref=\"{{ formBase }}form.submission.view()\">View</a></li>\n  <li role=\"presentation\" ng-class=\"{active:isActive(formBase + 'form.submission.edit')}\"><a ui-sref=\"{{ formBase }}form.submission.edit()\">Edit</a></li>\n  <li role=\"presentation\" ng-class=\"{active:isActive(formBase + 'form.submission.delete')}\"><a ui-sref=\"{{ formBase }}form.submission.delete()\">Delete</a></li>\n</ul>\n<div ui-view style=\"margin-top:20px;\"></div>\n"
+      "<ul class=\"nav nav-pills\">\r\n  <li role=\"presentation\" ng-class=\"{active:isActive(formBase + 'form.submission.view')}\"><a ui-sref=\"{{ formBase }}form.submission.view()\">View</a></li>\r\n  <li role=\"presentation\" ng-class=\"{active:isActive(formBase + 'form.submission.edit')}\"><a ui-sref=\"{{ formBase }}form.submission.edit()\">Edit</a></li>\r\n  <li role=\"presentation\" ng-class=\"{active:isActive(formBase + 'form.submission.delete')}\"><a ui-sref=\"{{ formBase }}form.submission.delete()\">Delete</a></li>\r\n</ul>\r\n<div ui-view style=\"margin-top:20px;\"></div>\r\n"
     );
 
     $templateCache.put('formio-helper/submission/view.html',
-      "<formio form=\"currentForm.form\" submission=\"currentSubmission.submission\" read-only=\"true\"></formio>\n"
+      "<formio form=\"currentForm.form\" submission=\"currentSubmission.submission\" read-only=\"true\"></formio>\r\n"
     );
 
     $templateCache.put('formio-helper/submission/edit.html',
-      "<formio form=\"currentForm.form\" submission=\"currentSubmission.submission\" form-action=\"currentSubmission.url\"></formio>\n"
+      "<formio form=\"currentForm.form\" submission=\"currentSubmission.submission\" form-action=\"currentSubmission.url\"></formio>\r\n"
     );
 
     $templateCache.put('formio-helper/submission/delete.html',
-      "<formio-delete src=\"currentSubmission.url\"></formio-delete>\n"
+      "<formio-delete src=\"currentSubmission.url\"></formio-delete>\r\n"
     );
 
     /**** OFFLINE TEMPLATES ****/
     $templateCache.put('formio-helper/offline/index.html',
-      "<div>\n    <h2>The following submission had an error. Please correct it and resubmit.</h2>\n    <formio src=\"currentSubmission.url\" submission=\"currentSubmission.data\" hide-components=\"['submit']\"></formio>\n    <a class=\"btn btn-lg btn-info\" ng-click=\"submitSubmission()\">Retry</a>\n    <a class=\"btn btn-lg btn-warning\" ng-click=\"cancelSubmission()\">Cancel Submission</a>\n</div>"
+      "<div>\r\n    <h2>The following submission had an error. Please correct it and resubmit.</h2>\r\n    <formio src=\"currentSubmission.url\" submission=\"currentSubmission.data\" hide-components=\"['submit']\"></formio>\r\n    <a class=\"btn btn-lg btn-info\" ng-click=\"submitSubmission()\">Retry</a>\r\n    <a class=\"btn btn-lg btn-warning\" ng-click=\"cancelSubmission()\">Cancel Submission</a>\r\n</div>"
     );
 
     $templateCache.put('formio-helper/offline/button.html',
-      "<div class=\"offline-button\">\n    <div ng-if=\"hasOfflineMode\">\n        <span class=\"navbar-text\" ng-click=\"offline.forceOffline(!offline.isForcedOffline())\" style=\"cursor:pointer;\">\n            <i class=\"glyphicon glyphicon-signal text-success\" ng-class=\"{ 'text-danger': (offline.isForcedOffline() || !offline.enabled), 'text-warning' : offline.offline }\"></i>\n        </span>\n        <span ng-if=\"offline.submissionQueueLength()\" ng-click=\"offline.dequeueSubmissions()\" class=\"navbar-text\" style=\"cursor:pointer;\">\n            <span class=\"badge\">{{ offline.submissionQueueLength() }} Queued</span> <i class=\"glyphicon glyphicon-refresh\" ng-class=\"{ 'glyphicon-spin': offline.dequeuing }\"></i>\n        </span>\n    </div>\n    <div ng-if=\"!hasOfflineMode\">\n        <span class=\"navbar-text\">\n            <a tabindex=\"0\" offline-popup role=\"button\" data-toggle=\"popover\" data-placement=\"bottom\" data-trigger=\"focus\" title=\"Offline Mode Disabled\" data-content=\"You must upgrade your project to Team Pro to enable offline mode support. Please contact support@form.io for more information.\"><i class=\"glyphicon glyphicon-signal text-danger\"></i></a>\n        </span>\n    </div>\n</div>"
+      "<div class=\"offline-button\">\r\n    <div ng-if=\"hasOfflineMode\">\r\n        <span class=\"navbar-text\" ng-click=\"offline.forceOffline(!offline.isForcedOffline())\" style=\"cursor:pointer;\">\r\n            <i class=\"glyphicon glyphicon-signal text-success\" ng-class=\"{ 'text-danger': (offline.isForcedOffline() || !offline.enabled), 'text-warning' : offline.offline }\"></i>\r\n        </span>\r\n        <span ng-if=\"offline.submissionQueueLength()\" ng-click=\"offline.dequeueSubmissions()\" class=\"navbar-text\" style=\"cursor:pointer;\">\r\n            <span class=\"badge\">{{ offline.submissionQueueLength() }} Queued</span> <i class=\"glyphicon glyphicon-refresh\" ng-class=\"{ 'glyphicon-spin': offline.dequeuing }\"></i>\r\n        </span>\r\n    </div>\r\n    <div ng-if=\"!hasOfflineMode\">\r\n        <span class=\"navbar-text\">\r\n            <a tabindex=\"0\" offline-popup role=\"button\" data-toggle=\"popover\" data-placement=\"bottom\" data-trigger=\"focus\" title=\"Offline Mode Disabled\" data-content=\"You must upgrade your project to Team Pro to enable offline mode support. Please contact support@form.io for more information.\"><i class=\"glyphicon glyphicon-signal text-danger\"></i></a>\r\n        </span>\r\n    </div>\r\n</div>"
     );
 
     $templateCache.put('formio/components/resourcefields.html', FormioUtils.fieldWrap(
-        "<formio-component component=\"resourceSelect\" data=\"data\"></formio-component>\n<formio-component ng-if=\"data.resource\" component=\"propertyField\" data=\"data\"></formio-component>\n<fieldset ng-if=\"data.resource\">\n  <legend>Resource Fields</legend>\n  <div class=\"well\">Below are the fields within the selected resource. For each of these fields, select the corresponding field within this form that you wish to map to the selected Resource.</div>\n  <formio-component ng-repeat=\"resourceComponent in resourceComponents\" component=\"resourceComponent\" data=\"data.fields\"></formio-component>\n</fieldset>\n"
+        "<formio-component component=\"resourceSelect\" data=\"data\"></formio-component>\r\n<formio-component ng-if=\"data.resource\" component=\"propertyField\" data=\"data\"></formio-component>\r\n<fieldset ng-if=\"data.resource\">\r\n  <legend>Resource Fields</legend>\r\n  <div class=\"well\">Below are the fields within the selected resource. For each of these fields, select the corresponding field within this form that you wish to map to the selected Resource.</div>\r\n  <formio-component ng-repeat=\"resourceComponent in resourceComponents\" component=\"resourceComponent\" data=\"data.fields\"></formio-component>\r\n</fieldset>\r\n"
     ));
   }
 ]);
