@@ -34,7 +34,7 @@
     "angular-ui-router": "^0.4.2",
     "lodash": "^4.17.4",
     "ng-formio": "^2.15.6",
-    "ng-formio-builder": "^2.15.6",
+    "ng-formio-builder": "https://github.com/aialenti/ngFormBuilder.git#master",
     "ng-formio-grid": "^1.0.0"
   },
   "browserify": {
