@@ -29,7 +29,7 @@
   },
 	"resolutions": {
 		"angular": "^1.6.4",
-		"ng-formio-builder": "master"
+		"ng-formio-builder": "https://github.com/aialenti/ngFormBuilder.git#master"
 	},
   "main": [
     "dist/ng-formio-helper.js",
