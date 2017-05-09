@@ -27,6 +27,10 @@
     "ng-formio-builder": "https://github.com/aialenti/ngFormBuilder.git#master",
     "ng-tags-input": "^3.2.0"
   },
+	"resolutions": {
+		"angular": "^1.6.4",
+		"ng-formio-builder": "master"
+	},
   "main": [
     "dist/ng-formio-helper.js",
     "dist/ng-formio-builder.js"
